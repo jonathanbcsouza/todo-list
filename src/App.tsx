@@ -1,21 +1,33 @@
-import { useState } from 'react';
-import './index.css';
+import { useState, useEffect } from 'react';
+import { AddTodo } from './components/AddTodo';
+import { Todo } from './components/Todo';
 
-function App() {
-  const [count, setCount] = useState(0);
+type TTodos = {
+  id: number;
+  value: string;
+};
+
+export const App = () => {
+  const [items, setItems] = useState<TTodos[]>([]);
+  const [reRenderTrigger, setReRenderTrigger] = useState<string[]>([]);
+
+  function updateScreen() {
+    setReRenderTrigger([]);
+  }
+
+  useEffect(() => {
+    const localStorageItems = JSON.parse(localStorage.getItem('items') || '[]');
+    setItems(localStorageItems);
+  }, [reRenderTrigger]);
 
   return (
-    <>
-      <div className="flex items-center justify-center h-screen">
-        <button
-          onClick={() => setCount((count) => count + 1)}
-          className="bg-teal-700 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded"
-        >
-          count is {count}
-        </button>
-      </div>
-    </>
-  );
-}
+    <div className="font-sans flex flex-col items-center justify-center min-h-screen px-16">
+      <p className="text-xl font-bold mb-4">Todo List</p>
 
-export default App;
+      <AddTodo reRender={updateScreen} />
+      {items.map((item) => (
+        <Todo key={item.id} id={item.id} item={item.value} />
+      ))}
+    </div>
+  );
+};
