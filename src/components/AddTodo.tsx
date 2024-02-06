@@ -22,8 +22,8 @@ export const AddTodo = ({ reRender }: TAddTodo) => {
   };
 
   return (
-    <div className="m-1">
-      <input id={`input-add`} type="text" className={`text-center p-2 rounded}`} autoFocus />
+    <div className="m-1 flex">
+      <input id={`input-add`} type="text" className={`text-center p-2 rounded`} autoFocus />
       <button
         onClick={onClick}
         type="submit"
