@@ -1,16 +1,13 @@
+import { TTodos } from '../App';
+
 type TButton = {
-  id: string;
-  item?: string;
+  id: number;
+  setItems: React.Dispatch<React.SetStateAction<TTodos[]>>;
 };
 
-export const DelButton = ({ id }: TButton) => {
+export const DelButton = ({ id, setItems }: TButton) => {
   const onClick = () => {
-    const items = JSON.parse(localStorage.getItem('items') || '[]');
-    const updatedItems = items.filter((item: { id: string }) => item.id !== id);
-    localStorage.setItem('items', JSON.stringify(updatedItems));
-    
-    const divElement = document.getElementById(`${id}`) as HTMLDivElement;
-    divElement.remove();
+    setItems((prevItems: TTodos[]) => prevItems.filter((item) => item.id !== id));
   };
 
   return (

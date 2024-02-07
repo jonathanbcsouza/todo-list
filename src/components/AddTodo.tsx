@@ -1,29 +1,26 @@
 import { v4 as uuidv4 } from 'uuid';
+import { TTodos } from '../App';
 
-type TAddTodo = {
-  reRender: () => void;
+type AddTodo = {
+  setItems: React.Dispatch<React.SetStateAction<TTodos[]>>;
 };
 
-export const AddTodo = ({ reRender }: TAddTodo) => {
+export const AddTodo = ({ setItems }: AddTodo) => {
   const onClick = () => {
-    const items = JSON.parse(localStorage.getItem('items') || '[]');
-    const inputElement = document.getElementById(`input-add`) as HTMLInputElement;
+    const inputElement = document.getElementById('input-add') as HTMLInputElement;
 
-    const newItem = {
-      id: uuidv4(),
+    const updatedTodos: TTodos = {
+      id: uuidv4() as unknown as number,
       value: `${inputElement.value}`,
     };
 
-    items.push(newItem);
-    localStorage.setItem('items', JSON.stringify(items));
+    setItems((prevItems: TTodos[]) => [...prevItems, updatedTodos]);
     inputElement.value = '';
-
-    reRender();
   };
 
   return (
     <div className="m-1 flex">
-      <input id={`input-add`} type="text" className={`text-center p-2 rounded`} autoFocus />
+      <input id={'input-add'} type="text" className={`text-center p-2 rounded`} autoFocus />
       <button
         onClick={onClick}
         type="submit"
