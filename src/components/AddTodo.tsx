@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { TTodos } from '../App';
+import { Input } from './Input';
 
 type AddTodo = {
   setItems: React.Dispatch<React.SetStateAction<TTodos[]>>;
@@ -7,7 +8,11 @@ type AddTodo = {
 
 export const AddTodo = ({ setItems }: AddTodo) => {
   const onClick = () => {
-    const inputElement = document.getElementById('input-add') as HTMLInputElement;
+    const inputElement = document.querySelector('input') as HTMLInputElement;
+
+    if (!inputElement.value) {
+      return;
+    }
 
     const updatedTodos: TTodos = {
       id: uuidv4() as unknown as number,
@@ -20,7 +25,7 @@ export const AddTodo = ({ setItems }: AddTodo) => {
 
   return (
     <div className="m-1 flex">
-      <input id={'input-add'} type="text" className={`text-center p-2 rounded`} autoFocus />
+      <Input type="add" />
       <button
         onClick={onClick}
         type="submit"
