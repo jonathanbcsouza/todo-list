@@ -1,19 +1,21 @@
-type TInputTypes = 'add' | 'todo';
+type TInputTypes = 'new-todo' | 'todo';
 
 type TInput = {
-  value?: string;
+  value: string;
   type: TInputTypes;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Input = ({ value, type }: TInput) => {
+export const Input = ({ value, type, onChange }: TInput) => {
   return (
     <input
       type="text"
       value={value}
-      className={`text-center p-2 rounded 'cursor-not-allowed'`}
-      autoFocus={type === 'add'}
       placeholder="add a todo..."
+      className={`text-center p-2 rounded 'cursor-not-allowed'`}
       disabled={type === 'todo'}
+      autoFocus={type === 'new-todo'}
+      onChange={onChange}
     />
   );
 };

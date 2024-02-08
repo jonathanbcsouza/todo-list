@@ -19,7 +19,7 @@ export const App = () => {
 
   return (
     <div className="font-sans flex flex-col items-center mt-8 sm:mt-16 md:mt-24 lg:mt-32 xl:mt-40 2xl:mt-44">
-      <p className="text-xl font-bold mb-4">Todo List</p>
+      <h1 className="text-xl font-bold mb-4">Todo List</h1>
       <AddTodo setItems={setItems} />
       {items.map((item) => (
         <Todo key={item.id} id={item.id} item={item.value} setItems={setItems} />
