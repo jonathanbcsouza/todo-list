@@ -10,7 +10,7 @@ type TTodo = {
 
 export const Todo = ({ id, item, setItems }: TTodo) => {
   return (
-    <div id={id.toString()} className="m-1 flex">
+    <div id={id.toString()} className="m-2 flex">
       <Input value={item} type="todo" />
       <DelButton id={id} setItems={setItems} />
     </div>

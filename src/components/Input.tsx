@@ -12,7 +12,7 @@ export const Input = ({ value, type, onChange }: TInput) => {
       type="text"
       value={value}
       placeholder="add a todo..."
-      className={`text-center p-2 rounded 'cursor-not-allowed'`}
+      className={`text-center p-2 rounded ${type === 'todo' ? 'cursor-not-allowed' : ''}`}
       disabled={type === 'todo'}
       autoFocus={type === 'new-todo'}
       onChange={onChange}

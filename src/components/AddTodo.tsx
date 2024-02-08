@@ -15,7 +15,7 @@ export const AddTodo = ({ setItems }: TAddTodo) => {
   };
 
   return (
-    <div>
+    <div className="m-2 flex">
       <Input value={inputValue} type="new-todo" onChange={handleInputChange} />
       <AddButton inputValue={inputValue} setInputValue={setInputValue} setItems={setItems} />
     </div>
