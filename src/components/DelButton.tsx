@@ -12,6 +12,7 @@ export const DelButton = ({ id, setItems }: TDelButton) => {
 
   return (
     <button
+      type="button"
       onClick={handleDelete}
       className="bg-red-900 hover:bg-red-700 text-sm font-semibold ml-2 py-2 px-4 rounded transition duration-200 ease-in-out"
     >

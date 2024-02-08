@@ -24,6 +24,7 @@ export const AddButton = ({ inputValue, setItems, setInputValue }: TAddButton) =
 
   return (
     <button
+      type="button"
       onClick={handleAdd}
       className="bg-slate-700 hover:bg-slate-400 text-sm font-semibold ml-2 py-2 px-4 rounded transition duration-200 ease-in-out"
     >
