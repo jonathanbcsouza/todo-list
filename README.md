@@ -17,9 +17,9 @@ This is a simple Todo List application built with React and TypeScript.
 #### Installation
 
 1. Clone the repository
-2. Navigate into the directory: `cd todolist`
+2. Navigate into the directory
 3. Install the dependencies: `npm install`
-4. Start the application: `npm start`
+4. Start the application: `npm run dev`
 
 #### License
 
