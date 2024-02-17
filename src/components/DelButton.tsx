@@ -1,4 +1,5 @@
 import { TTodos } from '../App';
+import { FiTrash2 } from 'react-icons/fi';
 
 type TDelButton = {
   id: number;
@@ -12,11 +13,10 @@ export const DelButton = ({ id, setItems }: TDelButton) => {
 
   return (
     <button
-      type="button"
       onClick={handleDelete}
-      className="bg-red-900 hover:bg-red-700 text-sm font-semibold ml-2 py-2 px-4 rounded transition duration-200 ease-in-out"
+      className="hover:text-red-500 active:scale-50 text-gray-400 80w transition duration-300 ease-in-out"
     >
-      X
+      <FiTrash2 className="w-6 h-6" />
     </button>
   );
 };

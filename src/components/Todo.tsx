@@ -23,8 +23,8 @@ export const Todo = ({ id, value, setItems }: TTodo) => {
           {value}
         </div>
         <Checkbox isChecked={isChecked} setIsChecked={setIsChecked} />
+        <DelButton id={id} setItems={setItems} />
       </label>
-      <DelButton id={id} setItems={setItems} />
     </div>
   );
 };
