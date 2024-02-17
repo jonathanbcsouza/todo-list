@@ -24,7 +24,7 @@ export const App = () => {
       <section>
         <AddTodo setItems={setItems} />
         {[...items].reverse().map((item) => (
-          <Todo key={item.id} id={item.id} item={item.value} setItems={setItems} />
+          <Todo key={item.id} id={item.id} value={item.value} setItems={setItems} />
         ))}
       </section>
     </main>
