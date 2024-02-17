@@ -12,7 +12,8 @@ This is a simple Todo List application built with React and TypeScript.
 #### Dependencies
 
 - [uuid](https://github.com/uuidjs/uuid): A package to generate unique identifiers (UUIDs). It's used in this project to assign a unique ID to each todo item.
-- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss): A utility-first CSS framework that provides low-level utility classes to build custom designs. It promotes component composition and allows for highly customizable interfaces.
+- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss): A utility-first CSS framework that provides low-level utility classes to build custom designs.
+- [React Icons](https://github.com/react-icons/react-icons): Popular icons from various libraries in a React.js-friendly syntax.
 
 #### Installation
 
