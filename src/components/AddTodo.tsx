@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { Input } from './Input';
 import { AddButton } from './AddButton';
 import { TTodos } from '../App';
+import { v4 as uuidv4 } from 'uuid';
 
 type TAddTodo = {
   setItems: React.Dispatch<React.SetStateAction<TTodos[]>>;
@@ -14,10 +15,28 @@ export const AddTodo = ({ setItems }: TAddTodo) => {
     setInputValue(event.target.value);
   };
 
+  const handleAdd = (event: FormEvent) => {
+    event.preventDefault();
+
+    if (!inputValue) {
+      return;
+    }
+
+    const newTodo: TTodos = {
+      id: uuidv4() as unknown as number,
+      value: inputValue,
+    };
+
+    setItems((prevItems: TTodos[]) => [...prevItems, newTodo]);
+    setInputValue('');
+  };
+
   return (
-    <div className="m-2 flex">
-      <Input value={inputValue} type="new-todo" onChange={handleInputChange} />
-      <AddButton inputValue={inputValue} setInputValue={setInputValue} setItems={setItems} />
-    </div>
+    <form onSubmit={handleAdd}>
+      <div className="m-2 flex">
+        <Input value={inputValue} onChange={handleInputChange} />
+        <AddButton />
+      </div>
+    </form>
   );
 };
