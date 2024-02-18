@@ -7,7 +7,8 @@ type TDelButton = {
 };
 
 export const DelButton = ({ id, setItems }: TDelButton) => {
-  const handleDelete = () => {
+  const handleDelete = (event: React.MouseEvent) => {
+    event.stopPropagation();
     setItems((prevItems: TTodos[]) => prevItems.filter((item) => item.id !== id));
   };
 
