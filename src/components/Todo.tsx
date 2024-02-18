@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { TTodos } from '../App';
 import { Checkbox } from './Checkbox';
 import { DelButton } from './DelButton';
+import { Item } from './Item';
 
 type TTodo = {
   id: number;
@@ -12,21 +13,10 @@ type TTodo = {
 export const Todo = ({ id, value, setItems }: TTodo) => {
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <div id={id.toString()} className="m-2 flex items-center">
-      <label className="flex items-center mt-2 space-x-4">
-        <div
-          className={`w-44 text-center p-2 rounded cursor-pointer bg-neutral-800 ${
-            isChecked ? 'line-through text-gray-400' : 'text-gray'
-          }`}
-          onClick={() => setIsChecked(!isChecked)}
-        >
-          {value}
-        </div>
-        <input id={id.toString()} type="checkbox" className="hidden" checked={isChecked} readOnly />
-
-        <Checkbox id={id.toString()} isChecked={isChecked} setIsChecked={setIsChecked} />
-        <DelButton id={id} setItems={setItems} />
-      </label>
-    </div>
+    <label id={id.toString()} className="grid grid-cols-10 gap-3 h-12 my-8">
+      <Checkbox id={id.toString()} isChecked={isChecked} setIsChecked={setIsChecked} />
+      <Item id={id} isChecked={isChecked} value={value} setIsChecked={setIsChecked} />
+      <DelButton id={id} setItems={setItems} />
+    </label>
   );
 };

@@ -12,15 +12,17 @@ export const Checkbox = ({ id, isChecked, setIsChecked }: TCheckbox) => {
     setIsChecked(!isChecked);
   };
 
-  const labelClassNames = `w-6 h-6 rounded ${
-    isChecked ? 'bg-blue-500 ' : 'bg-gray-700 '
-  } cursor-pointer flex justify-center items-center transition duration-200 ease-in-out`;
-
   return (
-    <div>
+    <div className="col-span-2 flex items-center">
       <input id={id} type="checkbox" className="hidden" checked={isChecked} readOnly />
-      <label htmlFor={id} className={labelClassNames} onClick={handleInputChange}>
-        {isChecked && <FiCheck className=" text-gray-800" />}
+      <label
+        htmlFor={id}
+        className={`w-6 h-6 rounded ${
+          isChecked ? 'bg-blue-500' : 'bg-neutral-700 '
+        } cursor-pointer flex justify-center items-center transition duration-200 ease-in-out`}
+        onClick={handleInputChange}
+      >
+        {isChecked && <FiCheck className=" text-neutral-700" />}
       </label>
     </div>
   );

@@ -32,11 +32,9 @@ export const AddTodo = ({ setItems }: TAddTodo) => {
   };
 
   return (
-    <form onSubmit={handleAdd}>
-      <div className="m-2 flex">
-        <Input value={inputValue} onChange={handleInputChange} />
-        <AddButton />
-      </div>
+    <form onSubmit={handleAdd} className="grid grid-cols-10 gap-3 h-12">
+      <Input value={inputValue} onChange={handleInputChange} />
+      <AddButton />
     </form>
   );
 };

@@ -10,7 +10,7 @@ export const ClearTodosBtn = ({ setItems }: TClearTodosBtn) => {
       onClick={() => {
         setItems([]);
       }}
-      className="mt-4 p-2 bg-red-800 text-white rounded-md"
+      className="w-1/3 bg-neutral-700 hover:bg-red-900 text-gray-300 font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
     >
       Clear All
     </button>

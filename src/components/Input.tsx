@@ -8,8 +8,8 @@ export const Input = ({ value, onChange }: TInput) => {
     <input
       type="text"
       value={value}
-      placeholder="add a todo..."
-      className={`text-center p-2 rounded bg-neutral-700`}
+      placeholder="Create a new todo..."
+      className={'col-span-8 text-center bg-neutral-700 rounded  border-gray-400'}
       autoFocus
       onChange={onChange}
     />

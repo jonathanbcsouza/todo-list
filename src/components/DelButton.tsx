@@ -7,15 +7,14 @@ type TDelButton = {
 };
 
 export const DelButton = ({ id, setItems }: TDelButton) => {
-  const handleDelete = (event: React.MouseEvent) => {
-    event.stopPropagation();
+  const handleDelete = () => {
     setItems((prevItems: TTodos[]) => prevItems.filter((item) => item.id !== id));
   };
 
   return (
     <button
       onClick={handleDelete}
-      className="hover:text-red-500 active:scale-50 text-gray-400 80w transition duration-300 ease-in-out"
+      className="flex items-center justify-center col-span-2 text-gray-400 hover:text-red-500 hover:bg-neutral-700 rounded transition-colors duration-150 ease-in-out"
     >
       <FiTrash2 className="w-6 h-6" />
     </button>
