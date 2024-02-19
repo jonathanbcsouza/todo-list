@@ -18,7 +18,7 @@ export const App = () => {
   }, [items]);
 
   return (
-    <main className=" flex justify-center font-sans mt-8 sm:mt-16 md:mt-24 lg:mt-32 xl:mt-40 2xl:mt-44">
+    <main className=" flex justify-center font-sans mt-8 lg:mt-20">
       <div>
         <header>
           <h1 className="text-xl font-bold mb-4">My Todo List</h1>
@@ -29,7 +29,13 @@ export const App = () => {
             <Todo key={item.id} id={item.id} value={item.value} setItems={setItems} />
           ))}
 
-          {items.length > 0 ? <ClearTodosBtn setItems={setItems} /> : <p>You don't have any remaining tasks.</p>}
+          {items.length === 0 ? (
+            <div className="mt-8">
+              <p className="text-gray-500">You don't have any tasks.</p>
+            </div>
+          ) : (
+            <ClearTodosBtn setItems={setItems} />
+          )}
         </section>
       </div>
     </main>

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { ConfirmationModal } from './ConfirmationModal';
 import { TTodos } from '../App';
 
 type TClearTodosBtn = {
@@ -5,14 +7,17 @@ type TClearTodosBtn = {
 };
 
 export const ClearTodosBtn = ({ setItems }: TClearTodosBtn) => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <button
-      onClick={() => {
-        setItems([]);
-      }}
-      className="w-1/3 bg-neutral-700 hover:bg-red-900 text-gray-300 font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
-    >
-      Clear All
-    </button>
+    <>
+      <button
+        onClick={() => setShowModal(true)}
+        className="w-1/3 bg-neutral-700 hover:bg-red-900 text-gray-300 font-bold py-3 rounded transition duration-300 ease-in-out"
+      >
+        Clear All
+      </button>
+      {showModal && <ConfirmationModal setItems={setItems} onClose={() => setShowModal(false)} />}
+    </>
   );
 };
