@@ -28,7 +28,8 @@ export const App = () => {
           {[...items].reverse().map((item) => (
             <Todo key={item.id} id={item.id} value={item.value} setItems={setItems} />
           ))}
-          <ClearTodosBtn setItems={setItems} />
+
+          {items.length > 0 ? <ClearTodosBtn setItems={setItems} /> : <p>You don't have any remaining tasks.</p>}
         </section>
       </div>
     </main>

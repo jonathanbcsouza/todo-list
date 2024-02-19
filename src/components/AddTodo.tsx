@@ -32,7 +32,7 @@ export const AddTodo = ({ setItems }: TAddTodo) => {
   };
 
   return (
-    <form onSubmit={handleAdd} className="grid grid-cols-10 gap-3 h-12">
+    <form onSubmit={handleAdd} className="grid grid-cols-10 gap-3 h-12 mb-8">
       <Input value={inputValue} onChange={handleInputChange} />
       <AddButton />
     </form>
