@@ -37,8 +37,8 @@ export const App = () => {
             </div>
           ) : (
             <div className="flex justify-between items-center">
-              <ClearAllTodosBtn setItems={setItems} />
               <ClearSelectedTodosBtn setItems={setItems} />
+              <ClearAllTodosBtn setItems={setItems} />
             </div>
           )}
         </section>
