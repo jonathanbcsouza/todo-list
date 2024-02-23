@@ -1,28 +1,29 @@
 import { Dispatch, SetStateAction } from 'react';
 import { FiCheck } from 'react-icons/fi';
+import { TTodos } from '../App';
 
 type TCheckbox = {
-  id: string;
-  isChecked: boolean;
-  setIsChecked: Dispatch<SetStateAction<boolean>>;
+  id: number;
+  status: boolean;
+  setItems: Dispatch<SetStateAction<TTodos[]>>;
 };
 
-export const Checkbox = ({ id, isChecked, setIsChecked }: TCheckbox) => {
+export const Checkbox = ({ id, status, setItems }: TCheckbox) => {
   const handleInputChange = () => {
-    setIsChecked(!isChecked);
+    setItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...item, status: !item.status } : item)));
   };
 
   return (
     <div className="col-span-2 flex items-center">
-      <input id={id} type="checkbox" className="hidden" checked={isChecked} readOnly />
+      <input id={id.toString()} type="checkbox" className="hidden" checked={status} readOnly />
       <label
-        htmlFor={id}
+        htmlFor={id.toString()}
         className={`w-6 h-6 rounded ${
-          isChecked ? 'bg-blue-500' : 'bg-neutral-700 '
+          status ? 'bg-blue-500' : 'bg-neutral-700 '
         } cursor-pointer flex justify-center items-center transition duration-200 ease-in-out`}
         onClick={handleInputChange}
       >
-        {isChecked && <FiCheck className=" text-neutral-700" />}
+        {status && <FiCheck className=" text-neutral-700" />}
       </label>
     </div>
   );

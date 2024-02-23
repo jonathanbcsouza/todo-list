@@ -6,14 +6,14 @@ type TClearTodosBtn = {
   setItems: React.Dispatch<React.SetStateAction<TTodos[]>>;
 };
 
-export const ClearTodosBtn = ({ setItems }: TClearTodosBtn) => {
+export const ClearAllTodosBtn = ({ setItems }: TClearTodosBtn) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
       <button
         onClick={() => setShowModal(true)}
-        className="w-1/3 bg-neutral-700 hover:bg-red-900 text-gray-300 font-bold py-3 rounded transition duration-300 ease-in-out"
+        className="text-sm text-gray-300 hover:text-blue-500 transition duration-300 ease-in-out"
       >
         Clear All
       </button>

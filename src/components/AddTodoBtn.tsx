@@ -1,4 +1,4 @@
-export const AddButton = () => {
+export const AddTodoBtn = () => {
   return (
     <button
       type="submit"

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { AddTodo } from './components/AddTodo';
 import { Todo } from './components/Todo';
-import { ClearTodosBtn } from './components/ClearTodosBtn';
+import { ClearAllTodosBtn } from './components/ClearAllTodosBtn';
+import { ClearSelectedTodosBtn } from './components/ClearSelectedTodosBtn';
 
 export type TTodos = {
   id: number;
   value: string;
+  status: boolean;
 };
 
 export const App = () => {
@@ -26,7 +28,7 @@ export const App = () => {
         <section className="w-80">
           <AddTodo setItems={setItems} />
           {[...items].reverse().map((item) => (
-            <Todo key={item.id} id={item.id} value={item.value} setItems={setItems} />
+            <Todo key={item.id} id={item.id} value={item.value} status={item.status} setItems={setItems} />
           ))}
 
           {items.length === 0 ? (
@@ -34,7 +36,10 @@ export const App = () => {
               <p className="text-gray-500">You don't have any tasks.</p>
             </div>
           ) : (
-            <ClearTodosBtn setItems={setItems} />
+            <div className="flex justify-between items-center">
+              <ClearAllTodosBtn setItems={setItems} />
+              <ClearSelectedTodosBtn setItems={setItems} />
+            </div>
           )}
         </section>
       </div>

@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { Input } from './Input';
-import { AddButton } from './AddButton';
+import { AddTodoBtn } from './AddTodoBtn';
 import { TTodos } from '../App';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -25,6 +25,7 @@ export const AddTodo = ({ setItems }: TAddTodo) => {
     const newTodo: TTodos = {
       id: uuidv4() as unknown as number,
       value: inputValue,
+      status: false,
     };
 
     setItems((prevItems: TTodos[]) => [...prevItems, newTodo]);
@@ -34,7 +35,7 @@ export const AddTodo = ({ setItems }: TAddTodo) => {
   return (
     <form onSubmit={handleAdd} className="grid grid-cols-10 gap-3 h-12 mb-8">
       <Input value={inputValue} onChange={handleInputChange} />
-      <AddButton />
+      <AddTodoBtn />
     </form>
   );
 };
