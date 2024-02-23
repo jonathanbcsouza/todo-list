@@ -19,7 +19,7 @@ export const Checkbox = ({ id, status, setItems }: TCheckbox) => {
         htmlFor={id.toString()}
         className={`w-6 h-6 rounded ${
           status ? 'bg-blue-500' : 'bg-neutral-700 '
-        } cursor-pointer flex justify-center items-center transition duration-200 ease-in-out`}
+        } cursor-pointer flex justify-center items-center transition duration-150 ease-in-out`}
         onClick={toggleStatus}
       >
         {status && <FiCheck className=" text-neutral-700" />}

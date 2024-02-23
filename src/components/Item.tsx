@@ -13,9 +13,9 @@ export const Item = ({ id, status, value, setItems }: TItem) => {
 
   return (
     <div
-      className={`col-span-6 flex items-center justify-center cursor-pointer  hover:text-blue-500 hover:text-2xl rounded transition-colors duration-50 ease-in-out ${
+      className={`col-span-6 flex items-center justify-center cursor-pointer ${
         status ? 'line-through text-gray-500' : 'text-gray-300'
-      }`}
+      } transition-colors duration-150 ease-in-out`}
       onClick={toggleStatus}
     >
       {value}
