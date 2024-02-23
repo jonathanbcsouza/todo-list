@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { FiCheck } from 'react-icons/fi';
 import { TTodos } from '../App';
+import { useToggleStatus } from '../hooks/useToggleStatus';
 
 type TCheckbox = {
   id: number;
@@ -9,9 +10,7 @@ type TCheckbox = {
 };
 
 export const Checkbox = ({ id, status, setItems }: TCheckbox) => {
-  const handleInputChange = () => {
-    setItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...item, status: !item.status } : item)));
-  };
+  const toggleStatus = useToggleStatus(setItems, id);
 
   return (
     <div className="col-span-2 flex items-center">
@@ -21,7 +20,7 @@ export const Checkbox = ({ id, status, setItems }: TCheckbox) => {
         className={`w-6 h-6 rounded ${
           status ? 'bg-blue-500' : 'bg-neutral-700 '
         } cursor-pointer flex justify-center items-center transition duration-200 ease-in-out`}
-        onClick={handleInputChange}
+        onClick={toggleStatus}
       >
         {status && <FiCheck className=" text-neutral-700" />}
       </label>

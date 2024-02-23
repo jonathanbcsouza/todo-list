@@ -1,4 +1,5 @@
 import { TTodos } from '../App';
+import { useToggleStatus } from '../hooks/useToggleStatus';
 
 type TItem = {
   id: number;
@@ -8,16 +9,14 @@ type TItem = {
 };
 
 export const Item = ({ id, status, value, setItems }: TItem) => {
-  const handleInputChange = () => {
-    setItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...item, status: !status } : item)));
-  };
+  const toggleStatus = useToggleStatus(setItems, id);
 
   return (
     <div
-      className={`col-span-6 flex items-center justify-center cursor-pointer hover:bg-neutral-700 rounded transition-colors duration-150 ease-in-out ${
+      className={`col-span-6 flex items-center justify-center cursor-pointer  hover:text-blue-500 hover:scale-150 rounded transition-colors duration-50 ease-in-out ${
         status ? 'line-through text-gray-500' : 'text-gray-300'
       }`}
-      onClick={handleInputChange}
+      onClick={toggleStatus}
     >
       {value}
     </div>
